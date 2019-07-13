@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "version": "20190713",
+    "name": "For The Love of Damien Hirst",
+    "default_locale": "en",
+    "description": "Website + domain name, 2013. Homage to Damien Hirst (and Banksy). Requires WebGL support.",
+    "author": "Alexander Christiaan Jacob",
+    "theme_color": "white",
+    "homepage_url": "https://fortheloveofdamienhirst.com/",
+    "start_url": "https://fortheloveofdamienhirst.com/",
+    "icons": [
+        {
+            "src": "https://fortheloveofdamienhirst.com/apple-touch-icon-precomposed.png"
+        }
+    ],
+    "display": "fullscreen"
+}
