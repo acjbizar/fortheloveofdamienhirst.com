@@ -53,6 +53,8 @@
 <script src="three.min.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6227584-61"></script>
 <script>
+    "use strict";
+
     // revolutions per second
     var angularSpeed = 0.2;
     var lastTime = 0;
@@ -81,9 +83,6 @@
             context.closePath();
             context.fill();
             texture.needsUpdate = true;
-            //context.restore();
-            //context.fillRect(0,0,559,496);
-            //console.log(context);
         }
 
         // render
@@ -102,22 +101,21 @@
     // scene
     var scene = new THREE.Scene();
 
-    canvas = document.createElement("canvas");
+    var canvas = document.createElement("canvas");
     canvas.width = 559;
     canvas.height = 496;
-    context = canvas.getContext("2d");
+    var context = canvas.getContext("2d");
     context.fillStyle = "rgb(255,255,255)";
     context.fillRect(0,0,559,496);
 
-    radius = 28;
-    diameter = radius * 2;
-    x = radius;
-    y = x;
-    var i = 0;
+    var radius = 28;
+    var diameter = radius * 2;
+    var x = radius;
+    var y = radius;
 
     for(var j = 0; j < 5; ++j)
     {
-        for(i = 0; i < 5; ++i)
+        for(var i = 0; i < 5; ++i)
         {
             context.fillStyle = "rgb(" + rgb() + "," + rgb() + "," + rgb() + ")";
             context.beginPath();
@@ -131,14 +129,15 @@
         y += diameter * 2 - 2;
     }
 
-    materials = [];
+    var materials = [];
+
     for (i = 0; i<6; i++) {
         var img = new Image();
         if(i === 4)
         {
             var texture = new THREE.Texture( canvas );
             texture.needsUpdate = true;
-            var mat = new THREE.MeshLambertMaterial({color: 0xffffff, map: texture});
+            mat = new THREE.MeshLambertMaterial({color: 0xffffff, map: texture});
         }
         else
         {
@@ -160,13 +159,11 @@
             var mat = new THREE.MeshLambertMaterial({color: 0xffffff, map: tex});
         }
 
-
         materials.push(mat);
     }
 
     var cubeGeometry = new THREE.CubeGeometry( 559/2, 496/2, 2.5);
-    //var cubeMaterial = new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'ballerina-blue.jpg' ) } );
-    cube = new THREE.Mesh( cubeGeometry, new THREE.MeshFaceMaterial(materials) );
+    var cube = new THREE.Mesh( cubeGeometry, new THREE.MeshFaceMaterial(materials) );
     cube.overdraw = true;
     scene.add(cube);
 
