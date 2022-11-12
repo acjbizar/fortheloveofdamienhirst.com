@@ -1,4 +1,4 @@
-# For The Tove of Damien Hirst
+# [For The Tove of Damien Hirst](https://fortheloveofdamienhirst.com/)
 
 Animated Internet artwork from 2013.
 
